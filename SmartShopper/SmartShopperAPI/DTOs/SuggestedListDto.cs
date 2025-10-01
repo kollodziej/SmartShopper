@@ -1,6 +1,0 @@
-﻿public class SuggestedListDto
-{
-    public Guid Id { get; set; }
-    public string Name { get; set; }
-    public List<SuggestedListItemDto> Items { get; set; }
-}

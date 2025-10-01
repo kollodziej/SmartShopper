@@ -2,14 +2,13 @@
 
 public class ShoppingList
 {
-    public Guid Id { get; private set; }
+    public int Id { get; private set; }
     public ListName Name { get; private set; }
-    public Guid UserId { get; private set; }
+    public int UserId { get; private set; }
     public DateTime CreatedAt { get; private set; }
 
-    public ShoppingList(ListName name, Guid userId)
+    public ShoppingList(ListName name, int userId)
     {
-        Id = Guid.NewGuid();
         Name = name;
         UserId = userId;
         CreatedAt = DateTime.UtcNow;
