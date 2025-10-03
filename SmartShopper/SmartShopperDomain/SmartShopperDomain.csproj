@@ -43,13 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Product.cs" />
-    <Compile Include="ValueObjects\Category.cs" />
-    <Compile Include="Entities\ListItem.cs" />
+    <Compile Include="ValueObjects\ListItem.cs" />
     <Compile Include="Entities\ShoppingList.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Enums\ProductCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValueObjects\ProductName.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
