@@ -1,16 +1,11 @@
-﻿using SmartShopperDomain.ValueObjects;
-using System;
-
-public class ListItem
+﻿public class ListItem
 {
-    public int ProductId { get; private set; }
     public Product Product { get; private set; }
-    public Quantity Quantity { get; private set; }
+    public int Quantity { get; private set; }
     public bool IsChecked { get; private set; }
 
-    public ListItem(int productId, Quantity quantity)
+    public ListItem(int quantity)
     {
-        ProductId = productId;
         Quantity = quantity;
         IsChecked = false;
     }
