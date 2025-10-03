@@ -1,0 +1,6 @@
+﻿CREATE TABLE [ShoppingPlanning].[Products]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Name] NVARCHAR(50) NOT NULL UNIQUE,
+    [Category] NVARCHAR(50) NOT NULL 
+)
