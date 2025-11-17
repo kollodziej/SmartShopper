@@ -1,15 +1,18 @@
 ﻿using SmartShopperDomain.Enums;
 
-public class Product
+namespace SmartShopperDomain.Entities
 {
-    public int Id { get; private set; }
-    public string Name { get; private set; }
-    public ProductCategory Category { get; private set; }
-
-    public Product(int id, string name, ProductCategory category)
+    public class Product
     {
-        Id = id;
-        Name = name;
-        Category = category;
+        public int Id { get; private set; }
+        public string Name { get; private set; }
+        public ProductCategory Category { get; private set; }
+
+        public Product(int id, string name, ProductCategory category)
+        {
+            Id = id;
+            Name = name;
+            Category = category;
+        }
     }
 }
