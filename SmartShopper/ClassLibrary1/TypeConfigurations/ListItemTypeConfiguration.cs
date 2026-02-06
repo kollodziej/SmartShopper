@@ -12,6 +12,7 @@ namespace SmartShopperInfrastructure.TypeConfigurations
             builder.Property(c => c.Quantity);
             builder.Property(c => c.IsChecked);
             builder.HasOne(c => c.Product).WithMany().HasForeignKey("FK_ProductId");
+            builder.HasKey(c => c.Id);
         }
     }
 }
