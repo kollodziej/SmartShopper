@@ -6,6 +6,7 @@ namespace SmartShopperInfrastructure
 {
     public class SmartShopperContext : DbContext
     {
+        public SmartShopperContext(DbContextOptions<SmartShopperContext> options) : base(options) { }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ShoppingList> ShoppingLists { get; set; }
 

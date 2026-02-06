@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Repository\IShoppingListRepository.cs" />
     <Compile Include="ValueObjects\ListItem.cs" />
     <Compile Include="Entities\ShoppingList.cs" />
     <Compile Include="Entities\User.cs" />
