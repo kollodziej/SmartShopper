@@ -1,0 +1,74 @@
+@page "/shoppinglist/{Id:int}"
+@using SmartShopperUI.Models
+@inject HttpClient Http
+
+<PageTitle>Lista zakupów</PageTitle>
+
+@if (_loading)
+{
+    <p>£adowanie...</p>
+}
+else if (_shoppingList is null)
+{
+    <p>Nie znaleziono listy zakupów.</p>
+}
+else
+{
+    <h1>@_shoppingList.Name</h1>
+    <p><em>Utworzono: @_shoppingList.CreatedAt.ToLocalTime().ToString("g")</em></p>
+
+    @if (_shoppingList.ListItems is null || _shoppingList.ListItems.Count == 0)
+    {
+        <div class="alert alert-info">
+            Lista zakupów jest pusta. Dodaj produkty!
+        </div>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Produkt</th>
+                    <th>Iloœæ</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in _shoppingList.ListItems)
+                {
+                    <tr class="@(item.IsChecked ? "table-success" : "")">
+                        <td>@(item.Product?.Name ?? "Nieznany produkt")</td>
+                        <td>@item.Quantity</td>
+                        <td>
+                            <input type="checkbox" checked="@item.IsChecked" disabled />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private ShoppingListDto? _shoppingList;
+    private bool _loading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _shoppingList = await Http.GetFromJsonAsync<ShoppingListDto>($"api/SmartShopper/SmartShopper/{Id}");
+        }
+        catch (HttpRequestException)
+        {
+            _shoppingList = null;
+        }
+        finally
+        {
+            _loading = false;
+        }
+    }
+}
