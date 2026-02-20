@@ -14,6 +14,13 @@ namespace SmartShopperAPI.Controllers
             _shoppingListRepository = shoppingListRepository;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAllShoppingLists(CancellationToken cancellationToken)
+        {
+            var lists = await _shoppingListRepository.GetAllShoppingLists(cancellationToken);
+            return Ok(lists);
+        }
+
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetShoppingListById(int id, CancellationToken cancellationToken)
         {

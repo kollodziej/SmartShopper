@@ -8,7 +8,15 @@ namespace SmartShopperInfrastructure.Repository
     {
         public async Task<ShoppingList?> GetShoppingListById(int id, CancellationToken cancellationToken)
         {
-            return await context.ShoppingLists.FirstOrDefaultAsync(i => i.Id == id, cancellationToken);
+            return await context.ShoppingLists
+                .Include(s => s.ListItems)
+                    .ThenInclude(li => li.Product)
+                .FirstOrDefaultAsync(i => i.Id == id, cancellationToken);
+        }
+
+        public async Task<IEnumerable<ShoppingList>> GetAllShoppingLists(CancellationToken cancellationToken)
+        {
+            return await context.ShoppingLists.ToListAsync(cancellationToken);
         }
     }
 }

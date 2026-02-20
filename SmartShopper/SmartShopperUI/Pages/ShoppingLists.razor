@@ -1,0 +1,61 @@
+﻿@page "/shoppingLists"
+@inject HttpClient Http
+@inject NavigationManager Navigation
+@using SmartShopperUI.Models
+
+<style>
+    .list-link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .list-link:hover {
+        color: #0d6efd;
+    }
+</style>
+
+<h3>Shopping Lists</h3>
+
+@if (lists == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (!lists.Any())
+{
+    <p>No shopping lists found.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var list in lists)
+            {
+                <tr>
+                    <td>
+                        <a href="/shoppinglist/@list.Id" class="list-link">@list.Id</a>
+                    </td>
+                    <td>
+                        <a href="/shoppinglist/@list.Id" class="list-link">@list.Name</a>
+                    </td>
+                    <td>@list.CreatedAt.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<ShoppingListDto>? lists;
+
+    protected override async Task OnInitializedAsync()
+    {
+        lists = await Http.GetFromJsonAsync<List<ShoppingListDto>>("api/SmartShopper/SmartShopper");
+    }
+}

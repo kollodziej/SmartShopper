@@ -5,7 +5,6 @@ namespace SmartShopperDomain.ValueObjects
     public class ListItem
     {
         public int Id { get; private set; }
-        public int ShoppingListId { get; private set; }
         public Product Product { get; private set; }
         public int Quantity { get; private set; }
         public bool IsChecked { get; private set; }

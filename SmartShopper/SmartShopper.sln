@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartShopperDomain", "Smart
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartShopperInfrastructure", "ClassLibrary1\SmartShopperInfrastructure.csproj", "{70C78BBB-F907-419C-9904-FD97CF61C0F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartShopperUI", "SmartShopperUI\SmartShopperUI.csproj", "{F87E7FA1-3655-415F-90C2-6FE1FD53F422}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{70C78BBB-F907-419C-9904-FD97CF61C0F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70C78BBB-F907-419C-9904-FD97CF61C0F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70C78BBB-F907-419C-9904-FD97CF61C0F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F87E7FA1-3655-415F-90C2-6FE1FD53F422}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F87E7FA1-3655-415F-90C2-6FE1FD53F422}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F87E7FA1-3655-415F-90C2-6FE1FD53F422}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F87E7FA1-3655-415F-90C2-6FE1FD53F422}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
